@@ -24,6 +24,7 @@ jobs:
     - name: Install Dependencies backend
       run: |
         cd backend/
+        npm cache clean --force
         npm ci --save-dev
 
     - name: Build backend
@@ -34,6 +35,7 @@ jobs:
     - name: Install Dependencies frontend
       run: |
         cd client/ 
+        npm cache clean --force
         npm ci --save-dev
 
     - name: Build frontend
