@@ -22,10 +22,28 @@ jobs:
         node-version: ${{ matrix.node-version }}
 
     - name: Install Dependencies
-      run: npm ci
+      run: |
+        cd client/ 
+        npm ci
+        cd ../backend/
+        npm ci
 
-    - name: Build
-      run: npm run build
+    - name: Build frontend
+      run: |
+        cd client/ 
+        npm run build
+    
+    - name: Build backend
+      run: |
+        cd backend/ 
+        npm run build
 
-    - name: Test
-      run: npm run test
+    - name: Test frontend
+      run: |
+        cd client/
+        npm run test
+    
+    - name: Test backend
+      run: |
+        cd backend/
+        npm run test
