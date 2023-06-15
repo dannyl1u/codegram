@@ -1,7 +1,7 @@
 name: CI
 
 # This workflow runs on every push to the repository and for every pull request
-on: [push, pull_request]
+on: [pull_request]
 
 jobs:
   build:
@@ -24,9 +24,9 @@ jobs:
     - name: Install Dependencies
       run: |
         cd client/ 
-        npm ci
+        npm ci --save-dev
         cd ../backend/
-        npm ci
+        npm ci --save-dev
 
     - name: Build frontend
       run: |
