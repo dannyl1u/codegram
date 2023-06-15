@@ -1,4 +1,4 @@
-name: CI
+name: "Test"
 
 # This workflow runs on every push to the repository and for every pull request
 on: [pull_request]
@@ -21,11 +21,14 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
 
-    - name: Install Dependencies
+    - name: Install Dependencies frontend
       run: |
         cd client/ 
         npm ci --save-dev
-        cd ../backend/
+    
+    - name: Install Dependencies backend
+      run: |
+        cd backend/
         npm ci --save-dev
 
     - name: Build frontend
