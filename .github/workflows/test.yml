@@ -21,14 +21,19 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
 
-    - name: Install Dependencies frontend
-      run: |
-        cd client/ 
-        npm ci --save-dev
-    
     - name: Install Dependencies backend
       run: |
         cd backend/
+        npm ci --save-dev
+
+    - name: Build backend
+      run: |
+        cd backend/ 
+        npm run build
+
+    - name: Install Dependencies frontend
+      run: |
+        cd client/ 
         npm ci --save-dev
 
     - name: Build frontend
@@ -36,10 +41,7 @@ jobs:
         cd client/ 
         npm run build
     
-    - name: Build backend
-      run: |
-        cd backend/ 
-        npm run build
+    
 
     - name: Test frontend
       run: |
