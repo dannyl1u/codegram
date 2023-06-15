@@ -24,8 +24,10 @@ jobs:
     - name: Install Dependencies backend
       run: |
         cd backend/
+        rm -rf package-lock.json 
+        rm -rf node_modules
         npm cache clean --force
-        npm ci --save-dev
+        npm i --save-dev
 
     - name: Build backend
       run: |
