@@ -37,6 +37,8 @@ jobs:
     - name: Install Dependencies frontend
       run: |
         cd client/ 
+        rm -rf package-lock.json 
+        rm -rf node_modules
         npm cache clean --force
         npm ci --save-dev
 
