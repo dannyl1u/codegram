@@ -15,6 +15,9 @@ dist/
 # Environment configuration files
 .env
 
+# Secrets
+secrets/
+
 # Logs
 logs/
 *.log
